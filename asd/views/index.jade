@@ -3,6 +3,19 @@ block content
     h1= title
     p#container Welcome to #{title}
     p#message (to be filled in)
+    
+    table.table#tid
+          thead
+            tr
+             th
+                | # Repositories
+          tbody
+            for repo in jade_github_repos
+              tr.active
+                td
+                  marquee #{repo}
+                  //a(href='http://127.0.0.1:3000/github/' + repo) #{repo}
+                  
     script.
       alert('hello world');
       $("#message").html("message set through jquery");
@@ -15,7 +28,15 @@ block content
         }).done(function(data) {
           //for d in data
           alert(data);
-          
+          $("#tid").hide();
+
+          var json = $.parseJSON(data);
+          $(json).each(function(i,val){
+            $.each(val,function(k,v){
+                jade_github_repos = k;
+                $("#message").html(v);
+                //alert(v);
+                });
+            });
         });
-		        
       });
