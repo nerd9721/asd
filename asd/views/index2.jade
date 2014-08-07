@@ -1,0 +1,39 @@
+extends layout
+block content
+
+  h1= title
+  p Welcome to #{title}
+
+  div.container
+    div.jumbotron
+      h1 MY KANBAN
+    div.row
+      div.col-lg-4
+        .panel.panel-primary
+          .panel-heading
+            h4  Join us. 
+          .panel-body
+            | Today if you make a choice,  you are going to get ever connected to internet all the time through out your life, even if you go to villages, subways, paths, metros, bus, Gym, anywhere it follows. Guys isn't that exciting?, do you wanna know how, take a minute and click on above Learn More link.
+      .col-lg-4
+        .panel.panel-default
+          .panel-heading
+            h4 Always Connected.
+          .panel-body
+            | You are absolutely free of money, credit cards, debit cards, paypal, coupon cards what so ever. This service is amazingly free and free only for you, if you register today. Do you know how many people out there paying lot of money but not getting exciting service, they always had problems with speed, connectivity.
+      .col-lg-4
+        h2 Done
+        ul.list-group
+          each val in doneTasks
+            li.list-group-item= val
+    .row
+      ul.nav.nav-pills.nav-stacked
+        li.active
+          a(href='#')
+            span.badge.pull-right #{num}
+            | Home
+           
+    
+      //.progress
+        //.progress-bar.progress-bar-striped.active(role='progressbar', aria-valuenow='45', aria-valuemin='0', aria-valuemax='100', style='width: 45%;')
+        //span.sr-only 45% Complete
+    //<span class="sr-only">45% Complete</span>

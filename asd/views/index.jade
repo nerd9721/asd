@@ -1,0 +1,21 @@
+extends layout
+block content
+    h1= title
+    p#container Welcome to #{title}
+    p#message (to be filled in)
+    script.
+      alert('hello world');
+      $("#message").html("message set through jquery");
+      $("#message").click(function(){
+
+        alert('ewrewrewr');
+        $.ajax({
+          url: "./users",
+          context: document.body
+        }).done(function(data) {
+          //for d in data
+          alert(data);
+          
+        });
+		        
+      });
